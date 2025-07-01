@@ -1,0 +1,70 @@
+package stepdef;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import utilities.ExcelFile;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.And;
+
+
+public class DDT { 
+	
+
+
+    WebDriver driver;
+    ExcelFile excel = new ExcelFile();
+    String file = "TestData.xlsx";
+    String sheet = "LoginData";
+
+    @Given("user navigate to login page")
+    public void user_navigate_to_login_page() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://tutorialsninja.com/demo/index.php?route=account/login");
+    }
+
+    @And("user enter excel data")
+    public void user_enter_excel_data() throws IOException {
+        int rowCount = excel.getRowCount(file, sheet);
+
+        for (int i = 1; i < rowCount; i++) {
+            String email = excel.getCellData(file, sheet, i, 0);
+            String password = excel.getCellData(file, sheet, i, 1);
+
+            // Enter credentials
+            driver.findElement(By.id("input-email")).clear();
+            driver.findElement(By.id("input-email")).sendKeys(email);
+
+            driver.findElement(By.id("input-password")).clear();
+            driver.findElement(By.id("input-password")).sendKeys(password);
+
+            // Click Login
+            driver.findElement(By.cssSelector("input[type='submit']")).click();
+
+            // Check login success (Account page contains "My Account")
+            boolean success = driver.getTitle().contains("My Account");
+
+            // Write result back to Excel
+            String result = success ? "Pass" : "Fail";
+            excel.setCellData(file, sheet, i, 2, result);
+
+            // Log out if successful, else stay
+            if (success) {
+                driver.findElement(By.linkText("Logout")).click();
+                driver.findElement(By.linkText("Login")).click(); // Navigate back
+            }
+        }
+    }
+
+    @Then("Login should be succesful for all rows")
+    public void login_should_be_succesful_for_all_rows() {
+        driver.quit();
+    }}
+
+}
