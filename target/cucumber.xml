@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="19.856" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-06-26T09:10:54.824141900Z">
+<testcase classname="Hover and click using Actions class" name="Hover over menu electronics" time="19.623">
+<failure type="java.lang.AssertionError" message="expected [Gaming - Gaming Accesories at Flipkart.com] but found [Laptops Online - Budget Laptops at Best Prices in India at Flipkart]">
+<![CDATA[java.lang.AssertionError: expected [Gaming - Gaming Accesories at Flipkart.com] but found [Laptops Online - Budget Laptops at Best Prices in India at Flipkart]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at stepdef.Act.user_hover_over_electronics(Act.java:38)
+	at ✽.user hover over electronics(file:///C:/Users/91912/Desktop/naesh%20it/seleniumbddframewok/src/test/resources/Feature/Act.feature:24)
+]]>
+</failure>
+<system-out><![CDATA[
+Given user launches browser.................................................passed
+When user hover over electronics............................................failed
+And User clicks on cameras and Accessories..................................skipped
+Then user lands on cameras and Accessories..................................skipped
+]]></system-out>
+</testcase>
+</testsuite>

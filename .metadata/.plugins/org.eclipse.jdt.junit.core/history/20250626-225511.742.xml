@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestRunner" project="seleniumbdd" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="runner.TestRunner" time="39.102">
+    <testsuite name="Hover and click using Actions class" time="39.102">
+      <testcase name="Hover over menu electronics" classname="Hover and click using Actions class" time="39.102"/>
+    </testsuite>
+  </testsuite>
+</testrun>

@@ -1,0 +1,27 @@
+package stepdef;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+
+public class DDT { 
+	
+
+@Given("user navigate to login page")
+public void user_navigate_to_login_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+@And("user enter excel data")
+public void user_enter_excel_data() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+@Then("Login should be succesful for all rows")
+public void login_should_be_succesful_for_all_rows() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+}

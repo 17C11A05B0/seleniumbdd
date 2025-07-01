@@ -1,0 +1,54 @@
+package stepdef;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pageobjects.Actpageob;
+import pageobjects.BaseClass;
+
+public class Act {
+ 
+
+
+@Given("user launches browser")
+public void user_launches_browser() {
+
+	
+	 BaseClass.inidr();
+     BaseClass.driver.get("https://www.flipkart.com/");
+     BaseClass.driver.manage().window().maximize();
+
+	
+	
+}
+
+@When("user hover over electronics")
+public void user_hover_over_electronics() { 
+	
+	Actpageob ac=new Actpageob(driver);
+	Actions act=new Actions(driver);
+	act.moveToElement(ac.getele())
+	.moveToElement(ac.gamingget()).click().build().perform(); 			
+	String s=driver.getTitle();
+	
+
+}
+
+@When("User clicks on cameras and Accessories")
+public void user_clicks_on_cameras_and_accessories() {
+   
+	
+}
+
+@Then("user lands on cameras and Accessories")
+public void user_lands_on_cameras_and_accessories() {
+
+	
+}
+
+}
